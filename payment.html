@@ -1,19 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart & Payment</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Payment</h1>
-    <input type="text" placeholder="Card Number">
-    <input type="text" placeholder="Expiry Date">
-    <input type="text" placeholder="CVV">
-    <button onclick="processPayment()">Pay Now</button>
-  </div>
-  <script src="script.js"></script>
+    <div class="container">
+        <!-- left: cart section -->
+        <section class="cart">
+            <h2>cart</h2>
+            <div class="cart-items">
+                <div class="cart-item">
+                    <div class="item-img"></div>
+                    <div class="item-info">
+                        <p class="item-name">name</p>
+                        <p class="out-of-stock">out of stock</p>
+                        <div class="small-box"></div>
+                    </div>
+                    <div class="price-box"></div>
+                </div>
+                <div class="cart-item">
+                    <div class="item-img"></div>
+                    <div class="item-info">
+                        <p class="item-name">name</p>
+                        <p class="out-of-stock">out of stock</p>
+                        <div class="small-box"></div>
+                    </div>
+                    <div class="price-box"></div>
+                </div>
+                <div class="cart-item">
+                    <div class="item-img"></div>
+                    <div class="item-info">
+                        <p class="item-name">name</p>
+                        <p class="out-of-stock">out of stock</p>
+                        <div class="small-box"></div>
+                    </div>
+                    <div class="price-box"></div>
+                </div>
+            </div>
+
+            <h2>cart</h2>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <p>name of the tab</p>
+                    <p class="price">price</p>
+                </div>
+                <div class="summary-row">
+                    <p>name of the tab</p>
+                    <p class="price">price</p>
+                </div>
+                <div class="summary-row">
+                    <p>name of the tab</p>
+                    <p class="price">price</p>
+                </div>
+                <div class="summary-row">
+                    <p>name of the tab</p>
+                    <p class="price">price</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- right: payment section -->
+        <aside class="payment">
+            <h3>Payment methods</h3>
+            <div class="payment-options">
+                <label><input type="radio" name="payment"> credit card</label>
+                <label><input type="radio" name="payment"> UPI</label>
+                <label><input type="radio" name="payment"> cod</label>
+            </div>
+
+            <form>
+                <label>name on the card</label>
+                <input type="text">
+
+                <label>card number</label>
+                <input type="text">
+
+                <div class="card-details">
+                    <div>
+                        <label>expiry date</label>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <label>cvv</label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <input type="submit" value="pay">
+                <p class="cancel">cancel</p>
+            </form>
+        </aside>
+    </div>
 </body>
 </html>

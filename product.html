@@ -1,18 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Product Details</h1>
-    <img src="images/product1.jpg" alt="Product 1">
-    <p>Price: $99.99</p>
-    <button onclick="addToCart()">Add to Cart</button>
-  </div>
-  <script src="script.js"></script>
+    <!-- <header>
+        <div class="logo"></div>
+        <nav>
+            <div class="nav-icons"></div>
+            <div class="nav-icons"></div>
+            <div class="nav-icons"></div>
+        </nav>
+    </header> -->
+
+    <!-- <div class="search-bar">
+        <input type="text" placeholder="Search all products">
+        <div class="search-icons"></div>
+        <div class="search-icons"></div>
+        <div class="search-icons"></div>
+    </div> -->
+
+    <div class="container">
+        <!-- left side: product details -->
+        <div class="product-details">
+            <h2>Name of Product</h2>
+            <div class="product-images">
+                <div class="large-img"></div>
+                <div class="small-imgs">
+                    <div class="small-img"></div>
+                    <div class="small-img"></div>
+                </div>
+            </div>
+            <p class="description">
+                Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos...
+            </p>
+        </div>
+
+        <!-- right side: purchase options -->
+        <aside class="purchase-section">
+            <div class="big-box"></div>
+            <div class="divider">or</div>
+            <div class="small-box"></div>
+            <h3>Description</h3>
+            <div class="desc-box"></div>
+        </aside>
+    </div>
 </body>
 </html>
