@@ -181,6 +181,11 @@ def not_found(error):
 ##############################################
 """ Private Routes (Require authorization) """
 
+@app.route('/settings')
+@auth_required
+def settings():
+    return render_template('settings.html')
+
 @app.route('/dashboard')
 @auth_required
 def dashboard():
