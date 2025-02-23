@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+  </div>
+  <div class="product-header">
+    <h1>Products</h1>
+    <a href="cart.html" class="btn">View Cart</a>
+  </div>
+
+  <div class="product-container">
+    <div class="product">
+      <img src="product2.webp" alt="Product 1">
+      <p>Product Description: Glucose Monitor</p>
+      <p>Price: $149.99</p>
+      <p>Quantity: <input type="number" id="quantity1" value="1" min="1"></p>
+      <button onclick="addToCart('Glucose Monitor', 149.99, document.getElementById('quantity1').value, 'product2.webp') ">Add to Cart</button>
+    </div>
+    
+    <div class="product">
+      <img src="product1.webp" alt="Product 2">
+      <p>Product Description: Dolo-650 Tablet</p>
+      <p>Price: $99.99</p>
+      <p>Quantity: <input type="number" id="quantity2" value="1" min="1"></p>
+      <button onclick="addToCart('Dolo-650 Tablet', 99.99, document.getElementById('quantity2').value, 'product1.webp')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="product3.webp" alt="Product 3">
+      <p>Product Description: N95 Mask</p>
+      <p>Price: $49.99</p>
+      <p>Quantity: <input type="number" id="quantity3" value="1" min="1"></p>
+      <button onclick="addToCart('N95 Mask', 49.99, document.getElementById('quantity3').value, 'product3.webp')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="product4.webp" alt="Product 4">
+      <p>Product Description: Hand Sanitizer</p>
+      <p>Price: $19.99</p>
+      <p>Quantity: <input type="number" id="quantity4" value="1" min="1"></p>
+      <button onclick="addToCart('Hand Sanitizer', 19.99, document.getElementById('quantity4').value, 'product4.webp')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="product5.webp" alt="Product 5">
+      <p>Product Description: Thermometer</p>
+      <p>Price: $29.99</p>
+      <p>Quantity: <input type="number" id="quantity5" value="1" min="1"></p>
+      <button onclick="addToCart('Thermometer', 29.99, document.getElementById('quantity5').value, 'product5.webp')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="product6.webp" alt="Product 6">
+      <p>Product Description: Pulse Oximeter</p>
+      <p>Price: $39.99</p>
+      <p>Quantity: <input type="number" id="quantity6" value="1" min="1"></p>
+      <button onclick="addToCart('Pulse Oximeter', 39.99, document.getElementById('quantity6').value, 'product6.webp')">Add to Cart</button>
+    </div>
+    
+
+  </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
