@@ -1,10 +1,11 @@
 # This file contains the firebase configuration details.
 firebaseConfig = {
-  "apiKey": "AIzaSyD152dqaksgSOqK_E7SendiUnmgO1ReRKs",
-  "authDomain": "waste-connect-fb4a1.firebaseapp.com",
-  "projectId": "waste-connect-fb4a1",
-  "storageBucket": "waste-connect-fb4a1.firebasestorage.app",
-  "messagingSenderId": "226399453466",
-  "appId": "1:226399453466:web:5795ea8e3b8796e897eca3",
-  "measurementId": "G-GG2RVRGJQH"
+  apiKey: "AIzaSyBuZ-Z-G_wjKm1yxzz0O26IzEBMXfURpWg",
+  authDomain: "med-app-2fde8.firebaseapp.com",
+  databaseURL: "https://med-app-2fde8-default-rtdb.firebaseio.com",
+  projectId: "med-app-2fde8",
+  storageBucket: "med-app-2fde8.firebasestorage.app",
+  messagingSenderId: "712372987359",
+  appId: "1:712372987359:web:7d6b205ec366c0d4eed06a",
+  measurementId: "G-JLBSPB84R1"
 }
