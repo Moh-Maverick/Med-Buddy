@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | PharmaCare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md py-4 px-10 flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+            <img src="https://placehold.co/40x40" alt="Logo" class="h-10">
+            <span class="text-xl font-semibold text-gray-800">Med-Buddy</span>
+        </div>
+        <!-- Navigation Links -->
+        <div class="space-x-6 text-lg text-gray-700">
+            <a href="#" class="hover:text-cyan-600">Dashboard</a>
+            <a href="#" class="hover:text-cyan-600">Orders</a>
+            <a href="#" class="hover:text-cyan-600">Inventory</a>
+            <a href="#" class="hover:text-cyan-600">Tracking</a>
+            <a href="#" class="hover:text-cyan-600 font-semibold">Settings</a>
+        </div>
+        <!-- User Profile -->
+        <div class="bg-cyan-700 text-white w-10 h-10 flex items-center justify-center rounded-full cursor-pointer">
+            <i class="fas fa-user"></i>
+        </div>
+    </nav>
+
+    <!-- Settings Container -->
+    <div class="max-w-5xl mx-auto py-10">
+
+        <h2 class="text-3xl font-semibold text-gray-900 mb-6">Settings</h2>
+
+        <!-- Account Settings -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h3 class="text-xl font-semibold border-b pb-4">Account Settings</h3>
+            <form class="mt-4">
+                <label class="block text-sm font-medium text-gray-700">Pharmacy Name</label>
+                <input type="text" value="MediCare Pharmacy"
+                    class="w-full p-3 mt-1 border rounded-md focus:ring-2 focus:ring-cyan-600">
+
+                <label class="block mt-4 text-sm font-medium text-gray-700">Email</label>
+                <input type="email" value="pharmacy@email.com"
+                    class="w-full p-3 mt-1 border rounded-md focus:ring-2 focus:ring-cyan-600">
+
+                <label class="block mt-4 text-sm font-medium text-gray-700">Contact Number</label>
+                <input type="tel" value="+1 555 234 567"
+                    class="w-full p-3 mt-1 border rounded-md focus:ring-2 focus:ring-cyan-600">
+            </form>
+        </div>
+
+        <!-- Security Settings -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h3 class="text-xl font-semibold border-b pb-4">Security Settings</h3>
+            <form class="mt-4">
+                <label class="block text-sm font-medium text-gray-700">Change Password</label>
+                <input type="password" placeholder="Enter new password"
+                    class="w-full p-3 mt-1 border rounded-md focus:ring-2 focus:ring-cyan-600">
+
+                <label class="block mt-4 text-sm font-medium text-gray-700">Confirm Password</label>
+                <input type="password" placeholder="Confirm new password"
+                    class="w-full p-3 mt-1 border rounded-md focus:ring-2 focus:ring-cyan-600">
+
+                <div class="flex items-center mt-4">
+                    <input type="checkbox" id="2fa" class="mr-2">
+                    <label for="2fa" class="text-sm text-gray-700">Enable Two-Factor Authentication (2FA)</label>
+                </div>
+            </form>
+        </div>
+
+        <!-- Notification Preferences -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h3 class="text-xl font-semibold border-b pb-4">Notification Preferences</h3>
+            <div class="mt-4">
+                <label class="flex items-center">
+                    <input type="checkbox" class="mr-2">
+                    Receive Order Notifications
+                </label>
+                <label class="flex items-center mt-2">
+                    <input type="checkbox" class="mr-2">
+                    Receive Low Stock Alerts
+                </label>
+                <label class="flex items-center mt-2">
+                    <input type="checkbox" class="mr-2">
+                    Receive Expiry Date Reminders
+                </label>
+            </div>
+        </div>
+
+        <!-- Theme Settings -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold border-b pb-4">Theme Settings</h3>
+            <div class="flex items-center justify-between mt-4">
+                <p class="text-gray-700">Enable Dark Mode</p>
+                <button id="toggleTheme" class="bg-gray-300 text-gray-700 px-5 py-2 rounded-md hover:bg-gray-400">
+                    Light Mode
+                </button>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-between mt-6">
+            <button class="bg-gray-300 text-gray-700 px-5 py-2 rounded-md hover:bg-gray-400">
+                Reset to Default
+            </button>
+            <button class="bg-cyan-700 text-white px-6 py-3 rounded-md text-lg hover:bg-cyan-800">
+                Save Changes
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Dark Mode Script -->
+    <script>
+        const toggleButton = document.getElementById("toggleTheme");
+        let darkMode = false;
+
+        toggleButton.addEventListener("click", function() {
+            darkMode = !darkMode;
+            document.body.classList.toggle("bg-gray-900");
+            document.body.classList.toggle("text-white");
+            document.querySelectorAll(".bg-white").forEach(el => {
+                el.classList.toggle("bg-gray-800");
+                el.classList.toggle("text-white");
+            });
+            toggleButton.textContent = darkMode ? "Dark Mode" : "Light Mode";
+        });
+    </script>
+
+</body>
+</html>

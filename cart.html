@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Med-Buddy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md py-4 px-10 flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+            <img src="https://placehold.co/40x40" alt="Logo" class="h-10">
+            <span class="text-xl font-semibold text-gray-800">Med-Buddy</span>
+        </div>
+        <!-- Navigation Links -->
+        <div class="space-x-6 text-lg text-gray-700">
+            <a href="#" class="hover:text-cyan-600">Home</a>
+            <a href="#" class="hover:text-cyan-600">Medicines</a>
+            <a href="#" class="hover:text-cyan-600">Orders</a>
+            <a href="#" class="hover:text-cyan-600">Contact</a>
+        </div>
+        <!-- Cart Icon -->
+        <div class="bg-cyan-700 text-white w-10 h-10 flex items-center justify-center rounded-full cursor-pointer">
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+    </nav>
+
+    <!-- Main Cart Container -->
+    <div class="max-w-6xl mx-auto py-10 grid grid-cols-3 gap-8">
+
+        <!-- 🛒 Cart Items Section -->
+        <section class="col-span-2 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold border-b pb-4">Shopping Cart</h2>
+
+            <!-- Cart Items -->
+            <div class="space-y-6 mt-6">
+                <!-- Item 1 -->
+                <div class="flex items-center border-b pb-4">
+                    <img src="https://placehold.co/100x100" alt="Medicine Bottle" class="w-24 h-24 rounded-md">
+                    <div class="ml-4 flex-1">
+                        <p class="font-medium text-lg">Paracetamol Tablets</p>
+                        <p class="text-gray-500 text-sm">Pack of 10 • In Stock</p>
+                        <p class="text-green-600 font-semibold">Eligible for free delivery</p>
+                        <div class="flex items-center mt-2">
+                            <label class="mr-2">Qty:</label>
+                            <select class="border rounded-md p-1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                            <button class="text-red-500 ml-4 hover:underline">Remove</button>
+                        </div>
+                    </div>
+                    <p class="text-lg font-semibold">₹49.00</p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="flex items-center border-b pb-4">
+                    <img src="https://placehold.co/100x100" alt="Vitamin Bottle" class="w-24 h-24 rounded-md">
+                    <div class="ml-4 flex-1">
+                        <p class="font-medium text-lg">Vitamin C Supplement</p>
+                        <p class="text-gray-500 text-sm">Pack of 60 • In Stock</p>
+                        <p class="text-green-600 font-semibold">Eligible for free delivery</p>
+                        <div class="flex items-center mt-2">
+                            <label class="mr-2">Qty:</label>
+                            <select class="border rounded-md p-1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                            <button class="text-red-500 ml-4 hover:underline">Remove</button>
+                        </div>
+                    </div>
+                    <p class="text-lg font-semibold">₹249.00</p>
+                </div>
+            </div>
+
+            <div class="mt-6 flex justify-between">
+                <button class="text-cyan-700 hover:underline">Continue Shopping</button>
+                <p class="text-lg font-semibold">Total: ₹298.00</p>
+            </div>
+        </section>
+
+        <!-- 💳 Order Summary Section -->
+        <aside class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-2xl font-semibold border-b pb-4">Order Summary</h3>
+            
+            <div class="mt-4">
+                <div class="flex justify-between text-lg">
+                    <p>Subtotal:</p>
+                    <p>₹298.00</p>
+                </div>
+                <div class="flex justify-between text-lg">
+                    <p>Delivery Fee:</p>
+                    <p class="text-green-600">Free</p>
+                </div>
+                <div class="flex justify-between text-xl font-semibold mt-4">
+                    <p>Total:</p>
+                    <p>₹298.00</p>
+                </div>
+            </div>
+
+            <button class="w-full bg-cyan-700 text-white py-3 mt-6 rounded-md text-lg font-medium hover:bg-cyan-800 transition">
+                Proceed to Checkout
+            </button>
+        </aside>
+
+    </div>
+
+</body>
+</html>
