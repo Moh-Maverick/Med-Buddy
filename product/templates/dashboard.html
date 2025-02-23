@@ -4,16 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .table th, .table td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: left;
+        }
+        .table thead {
+            background: #343a40;
+            color: white;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-primary { background: #0d6efd; color: white; }
+        .btn-warning { background: #ffc107; color: black; }
+        .btn-danger { background: #dc3545; color: white; }
+        .btn:hover {
+            opacity: 0.85;
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
     
-    {% include 'navbar_private.html' %}
-
-    <div class="container mt-5">
-        <div class="card shadow-sm p-4">
-            <h1 class="mb-3">👋 Welcome, {{ user['username'] }}!</h1>
+    <div class="container">
+        <div class="card">
+            <h1>👋 Welcome, {{ user['username'] }}!</h1>
             <p><strong>Email:</strong> {{ user['email'] }}</p>
             <p><strong>Location:</strong> {{ user.get('location', 'Not set') }}</p>
             <p><strong>Date of Birth:</strong> {{ user.get('dob', 'Not set') }}</p>
@@ -21,11 +68,11 @@
 
         <hr>
 
-        <div class="card shadow-sm p-4 mt-4">
-            <h2 class="mb-3">🛍️ Your Recent Orders</h2>
+        <div class="card mt-4">
+            <h2>🛍️ Your Recent Orders</h2>
             {% if recent_orders %}
-                <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+                <table class="table">
+                    <thead>
                         <tr>
                             <th>Order ID</th>
                             <th>Total Price</th>
@@ -47,15 +94,12 @@
             {% endif %}
         </div>
 
-        <div class="mt-4 d-flex gap-3">
+        <div class="mt-4">
             <a href="{{ url_for('profile') }}" class="btn btn-primary">👤 View Profile</a>
             <a href="{{ url_for('cart') }}" class="btn btn-warning">🛒 View Cart</a>
             <a href="{{ url_for('logout') }}" class="btn btn-danger">🚪 Logout</a>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    {% include 'footer.html' %}
 
 </body>
 </html>
