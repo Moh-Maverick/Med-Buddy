@@ -4,46 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            color: #111827;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .product {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-info h2 {
+            font-size: 20px;
+            color: #333;
+        }
+        .product-info p {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+        }
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #16a34a;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-top: 10px;
+            text-decoration: none;
+            color: white;
+            background: #2563eb;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            background: #1d4ed8;
+        }
+        .btn-add {
+            background: #ea580c;
+        }
+        .btn-add:hover {
+            background: #c2410c;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body>
 
-    {% if 'user' in session %}
-        {% include "navbar_private.html" %}
-    {% else %}
-        {% include "navbar_public.html" %}
-    {% endif %}
+    <div class="container">
+        <h1>🛍️ Explore Our Products</h1>
 
-    <!-- Products Page Container -->
-    <div class="max-w-7xl mx-auto mt-10 p-8 bg-white shadow-md rounded-lg">
-        <h1 class="text-3xl font-bold mb-6 text-center">🛍️ Explore Our Products</h1>
-
-        <!-- Product List -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid">
             {% for product in products %}
-            <div class="bg-white shadow-md rounded-lg overflow-hidden transition transform hover:scale-105">
-                <img src="{{ product['image_url'] }}" alt="{{ product['name'] }}" class="w-full h-56 object-cover">
-                <div class="p-5">
-                    <h2 class="text-xl font-bold text-gray-800">{{ product['name'] }}</h2>
-                    <p class="text-gray-600 mt-2">{{ product['description'][:100] }}...</p>
-                    <p class="text-lg font-semibold text-green-600 mt-2">💲{{ product['price'] }}</p>
-
-                    <div class="flex gap-4 mt-4">
-                        <a href="{{ url_for('product_detail', product_id=product['id']) }}" class="text-cyan-700 font-medium hover:text-cyan-900">
-                            🔍 View Details
-                        </a>
-                        <a href="{{ url_for('add_to_cart', product_id=product['id']) }}" class="text-orange-600 font-medium hover:text-orange-800">
-                            ➕ Add to Cart
-                        </a>
-                    </div>
+            <div class="product">
+                <img src="{{ product['image_url'] }}" alt="{{ product['name'] }}">
+                <div class="product-info">
+                    <h2>{{ product['name'] }}</h2>
+                    <p>{{ product['description'][:100] }}...</p>
+                    <p class="price">💲{{ product['price'] }}</p>
+                    <a href="{{ url_for('product_detail', product_id=product['id']) }}" class="btn">🔍 View</a>
+                    <a href="{{ url_for('add_to_cart', product_id=product['id']) }}" class="btn btn-add">➕ Add</a>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
-
-    {% include "footer.html" %}
 
 </body>
 </html>

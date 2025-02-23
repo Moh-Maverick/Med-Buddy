@@ -3,42 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <script src="https://cdn.tailwindcss.com"></script>
     <title>{{ product['name'] }}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+            color: #111827;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .product-container img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .product-info {
+            text-align: left;
+        }
+        .product-info p {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+        }
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #16a34a;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 10px;
+            text-decoration: none;
+            color: white;
+            background: #ea580c;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #c2410c;
+        }
+        .btn-back {
+            background: #4b5563;
+        }
+        .btn-back:hover {
+            background: #374151;
+        }
+
+        @media (min-width: 768px) {
+            .product-container {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900 font-poppins">
+<body>
 
-    {% include "navbar_private.html" %}
+    <div class="container">
+        <h1>{{ product['name'] }}</h1>
 
-    <div class="max-w-4xl mx-auto my-10 p-6 bg-white shadow-lg rounded-lg">
-        <h1 class="text-3xl font-semibold text-center">{{ product['name'] }}</h1>
-        
-        <div class="flex flex-col md:flex-row items-center md:items-start mt-6 gap-8">
-            <img src="{{ product['image_url'] }}" alt="{{ product['name'] }}" class="w-80 h-80 object-cover rounded-lg shadow-md">
-            
-            <div>
-                <p class="text-lg text-gray-700">{{ product['description'] }}</p>
-                <p class="text-2xl font-semibold text-green-600 mt-4">💲{{ product['price'] }}</p>
-                
-                <div class="mt-6 flex gap-4">
-                    <a href="{{ url_for('add_to_cart', product_id=product['id']) }}" 
-                       class="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-orange-600 transition">
-                        ➕ Add to Cart
-                    </a>
-                    <a href="{{ url_for('products') }}" 
-                       class="bg-gray-700 text-white px-6 py-3 rounded-md hover:bg-gray-800 transition">
-                        🔙 Back to Products
-                    </a>
-                </div>
+        <div class="product-container">
+            <img src="{{ product['image_url'] }}" alt="{{ product['name'] }}">
+
+            <div class="product-info">
+                <p>{{ product['description'] }}</p>
+                <p class="price">💲{{ product['price'] }}</p>
+
+                <a href="{{ url_for('add_to_cart', product_id=product['id']) }}" class="btn">➕ Add to Cart</a>
+                <a href="{{ url_for('products') }}" class="btn btn-back">🔙 Back to Products</a>
             </div>
         </div>
     </div>
 
-    {% include "footer.html" %}
-    
 </body>
 </html>

@@ -5,29 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Order History</title>
 </head>
-<body>
-    {% include 'navbar_private.html' %}
-    <h2>Your Order History</h2>
+<body class="bg-gray-100 text-gray-900 font-sans">
 
-    {% if orders %}
-        <ul>
-            {% for order in orders %}
-                <li>
-                    <strong>Order ID:</strong> {{ order.id }}<br>
-                    <strong>Total Price:</strong> ${{ order.total_price }}<br>
-                    <strong>Status:</strong> {{ order.order_status }}<br>
-                    <strong>Date:</strong> {{ order.timestamp.strftime('%B %d, %Y') }}<br>
-                    <!-- Add any other order details you want to display -->
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No orders found.</p>
-    {% endif %}
+    {% include 'navbar_private.html' %}
+
+    <div class="max-w-4xl mx-auto my-10 p-6 bg-white shadow-lg rounded-lg">
+        <h2 class="text-3xl font-semibold text-center mb-6">Your Order History</h2>
+
+        {% if orders %}
+            <div class="space-y-6">
+                {% for order in orders %}
+                    <div class="border p-4 rounded-lg shadow-sm bg-gray-50">
+                        <p class="text-lg font-medium">🛒 <strong>Order ID:</strong> {{ order.id }}</p>
+                        <p class="text-lg"><strong>Total Price:</strong> <span class="text-green-600">${{ order.total_price }}</span></p>
+                        <p class="text-lg"><strong>Status:</strong> <span class="font-semibold text-blue-600">{{ order.order_status }}</span></p>
+                        <p class="text-lg"><strong>Date:</strong> {{ order.timestamp.strftime('%B %d, %Y') }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-lg text-gray-600 text-center">No orders found. Start shopping now!</p>
+        {% endif %}
+    </div>
+
     {% include 'footer.html' %}
 </body>
 </html>
