@@ -1,35 +1,132 @@
-<div class="navbar">
-    <img class="logo-img" src="{{ url_for('static', filename='images/default_logo.png') }}" />
-    <span class="hamburger">&#9776;</span> <!-- Hamburger Icon -->
-    <div class="navbar-right" id="navbarRight">
-        <span class="closebtn">&times;</span>
-        
-        <!-- Existing pages -->
-        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <style>
+        /* General navbar styling */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: relative;
+            padding: 10px 20px;
+        }
 
-        <a href="{{ url_for('products') }}">Products</a>
-        <a href="{{ url_for('cart') }}">Cart</a>
-        <a href="{{ url_for('checkout') }}">Checkout</a>
-        
-        {% if session.get('role') == 'admin' %}
-            <div class="dropdown">
-                <a class="dropbtn" id="dropBtn">Admin</a>
-                <div class="dropdown-content">
-                        <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
-                        <a href="{{ url_for('add_product') }}">Add Product</a>
-                </div>
-            </div>
-        {% endif %}
+        /* Logo styling */
+        .navbar .logo-img {
+            height: 40px;
+            width: auto;
+            margin-right: 20px;
+        }
 
-        <div class="dropdown">
-            <a class="dropbtn" id="dropBtn">Account</a>
-            <div class="dropdown-content">
-                <a href="{{ url_for('profile')}}">Profile</a>
-                <a href="{{ url_for('settings')}}">Settings</a>
-                <a href="{{ url_for('order_history')}}">Orders</a>
-                <a id="sign-out-btn" href="{{ url_for('logout') }}">Logout</a>
-            </div>
+        /* Hamburger Icon styling */
+        .navbar .hamburger {
+            display: none;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Navbar-right container */
+        .navbar-right {
+            float: right;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Navbar links styling */
+        .navbar-right a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        .navbar-right a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Close button in mobile view */
+        .navbar-right .closebtn {
+            display: none;
+            font-size: 36px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Responsive styling for mobile */
+        @media screen and (max-width: 768px) {
+            .navbar-right {
+                display: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-color: #333;
+                width: 100%;
+                z-index: 999;
+            }
+
+            .navbar-right a {
+                display: block;
+                text-align: left;
+                padding: 16px;
+                font-size: 18px;
+            }
+
+            .navbar-right .hamburger {
+                display: block;
+            }
+
+            .navbar-right .closebtn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .navbar-right.open {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img class="logo-img" src="your-logo.png" alt="Logo" />
+
+        <!-- Hamburger Icon -->
+        <span class="hamburger">&#9776;</span>
+
+        <div class="navbar-right" id="navbarRight">
+            <span class="closebtn">&times;</span>
+
+            <!-- Navbar Links (in one line) -->
+            <a href="{{ url_for('dashboard')}}">Dashboard</a>
+            <a href="{{url_for('products')}}">Products</a>
+            <a href="{{url_for('cart')}}">Cart</a>
+            <a href="{{url_for('checkout')}}">Checkout</a>
+            <a href="{{url_for('profile')}}">Profile</a>
+            <a href="{{url_for('settings')}}">Settings</a>
+            <a href="{{url_for('order_history')}}">Orders</a>
+            <a href="{{url_for('logout')}}">Logout</a>
         </div>
-
     </div>
-</div>
+
+
+    <!-- JavaScript for Functionality -->
+    <script>
+        // Hamburger Menu Toggle - for Mobile
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            var navRight = document.getElementById('navbarRight');
+            if (navRight.style.right === "0px") {
+                navRight.style.right = "-100%"; // Slide out
+            } else {
+                navRight.style.right = "0"; // Slide in
+            }
+        });
+
+        // Close Button in Mobile Menu
+        document.querySelector('.closebtn').addEventListener('click', function() {
+            document.getElementById('navbarRight').style.right = "-100%"; // Slide out
+        });
+    </script>
+</body>
+</html>
