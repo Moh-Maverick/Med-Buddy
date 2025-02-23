@@ -5,53 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#0891b2", /* Tailwind's cyan-600 */
-                    }
-                }
-            }
-        }
-    </script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-white text-gray-900">
 
-   <!-- Wrapper for Centered Content with 80% Width -->
-   <div class="w-4/5 mx-auto">
+   <!-- Wrapper for Centered Content -->
+   <div class="w-4/5 mx-auto text-center">
 
-        <!-- Navigation Bar -->
-        <nav class="flex justify-between items-center py-4">
-            <!-- Logo -->
-            <div>
-                <img src="https://placehold.co/40x40" alt="Company Logo" class="h-8">
-            </div>
-            <!-- Navigation Links -->
-            <div class="space-x-6 text-gray-700 text-lg">
-                <a href="#" class="hover:text-cyan-600">Waste pickup</a>
-                <a href="#" class="hover:text-cyan-600">Shopping</a>
-                <a href="#" class="hover:text-cyan-600">Community</a>
-            </div>
-            <!-- User Profile Icon -->
-            <div class="bg-cyan-600 text-white w-8 h-8 flex items-center justify-center rounded-full">
-                <i class="fas fa-user"></i>
-            </div>
-        </nav>
+        <!-- Navbar -->
+<nav class="bg-white shadow-md py-4 px-8 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center space-x-2">
+        <img src="https://placehold.co/40x40" alt="Logo" class="h-8">
+        <span class="text-xl font-semibold text-gray-800">PharmaCare</span>
+    </div>
+    <!-- Navigation Links -->
+    <div class="space-x-6 text-gray-700 text-lg">
+        <a href="#" class="hover:text-cyan-600">Home</a>
+        <a href="#" class="hover:text-cyan-600">Medicines</a>
+        <a href="#" class="hover:text-cyan-600">Contact</a>
+        <a href="#" class="hover:text-red-600 font-semibold">Emergency</a>
+    </div>
+    <!-- User Profile -->
+    <div class="bg-cyan-700 text-white w-10 h-10 flex items-center justify-center rounded-full cursor-pointer">
+        <i class="fas fa-user"></i>
+    </div>
+</nav>
+
 
         <!-- Placeholder Section (For Search Bar and Filters) -->
         <section class="mt-4">
             <div class="bg-gray-300 h-10 w-full rounded-md"></div>
-            <div class="flex justify-end space-x-4 mt-2">
+            <div class="flex justify-center space-x-4 mt-2">
                 <div class="bg-gray-300 h-8 w-24 rounded-md"></div>
                 <div class="bg-gray-300 h-8 w-24 rounded-md"></div>
                 <div class="bg-gray-300 h-8 w-24 rounded-md"></div>
             </div>
         </section>
 
-        <!-- Cyan Banner Section -->
+        <!-- Orange Banner Section -->
         <section class="mt-6">
             <div class="bg-cyan-600 text-white p-6 rounded-lg flex items-center">
                 <!-- Left Text -->
@@ -77,7 +69,7 @@
         <section class="mt-8">
             <h3 class="text-lg font-semibold mb-4">Top products</h3>
             <!-- Product Grid -->
-            <div class="grid grid-cols-4 gap-6">
+            <div class="grid grid-cols-4 gap-6 justify-center">
                 <!-- First Product -->
                 <div class="bg-gray-100 p-4 rounded-lg text-center">
                     <img src="https://placehold.co/80x80" alt="Carry Bag" class="mx-auto">

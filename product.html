@@ -4,49 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <!-- <header>
-        <div class="logo"></div>
-        <nav>
-            <div class="nav-icons"></div>
-            <div class="nav-icons"></div>
-            <div class="nav-icons"></div>
-        </nav>
-    </header> -->
+<body class="bg-gray-100 text-gray-900">
 
-    <!-- <div class="search-bar">
-        <input type="text" placeholder="Search all products">
-        <div class="search-icons"></div>
-        <div class="search-icons"></div>
-        <div class="search-icons"></div>
-    </div> -->
+    <!-- Navbar -->
+<nav class="bg-white shadow-md py-4 px-8 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center space-x-2">
+        <img src="https://placehold.co/40x40" alt="Logo" class="h-8">
+        <span class="text-xl font-semibold text-gray-800">PharmaCare</span>
+    </div>
+    <!-- Navigation Links -->
+    <div class="space-x-6 text-gray-700 text-lg">
+        <a href="#" class="hover:text-cyan-600">Home</a>
+        <a href="#" class="hover:text-cyan-600">Medicines</a>
+        <a href="#" class="hover:text-cyan-600">Contact</a>
+        <a href="#" class="hover:text-red-600 font-semibold">Emergency</a>
+    </div>
+    <!-- User Profile -->
+    <div class="bg-cyan-700 text-white w-10 h-10 flex items-center justify-center rounded-full cursor-pointer">
+        <i class="fas fa-user"></i>
+    </div>
+</nav>
 
-    <div class="container">
-        <!-- left side: product details -->
-        <div class="product-details">
-            <h2>Name of Product</h2>
-            <div class="product-images">
-                <div class="large-img"></div>
-                <div class="small-imgs">
-                    <div class="small-img"></div>
-                    <div class="small-img"></div>
+
+    <!-- Product Page Container -->
+    <div class="max-w-6xl mx-auto mt-10 p-8 bg-white shadow-lg rounded-lg flex gap-10 min-h-[500px]">
+        
+        <!-- Left Side: Product Details -->
+        <div class="w-2/3">
+            <h2 class="text-3xl font-bold mb-4">Paracetamol 500mg Tablets</h2>
+            
+            <!-- Product Image & Thumbnails -->
+            <div>
+                <img src="https://placehold.co/500x350" alt="Paracetamol Tablets" class="rounded-lg shadow-md">
+                <div class="flex gap-3 mt-4">
+                    <img src="https://placehold.co/100x100" alt="Side View" class="w-24 h-24 rounded-md shadow cursor-pointer">
+                    <img src="https://placehold.co/100x100" alt="Back View" class="w-24 h-24 rounded-md shadow cursor-pointer">
                 </div>
             </div>
-            <p class="description">
-                Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos...
+
+            <!-- Description -->
+            <p class="mt-6 text-gray-700 leading-relaxed">
+                Paracetamol 500mg is a pain reliever and fever reducer. It is commonly used to treat headaches, muscle aches, colds, and other minor pains. This pack contains 10 tablets.
             </p>
         </div>
 
-        <!-- right side: purchase options -->
-        <aside class="purchase-section">
-            <div class="big-box"></div>
-            <div class="divider">or</div>
-            <div class="small-box"></div>
-            <h3>Description</h3>
-            <div class="desc-box"></div>
+        <!-- Right Side: Purchase Options -->
+        <aside class="w-1/3 bg-cyan-100 p-6 rounded-lg shadow-md flex flex-col justify-between">
+            <div>
+                <h3 class="text-3xl font-semibold text-cyan-900">₹49.00</h3>
+                <p class="text-gray-600 text-sm mb-6">Inclusive of all taxes</p>
+
+                <!-- Quantity Selector -->
+                <div class="flex items-center mb-6">
+                    <label class="mr-2 text-gray-700">Quantity:</label>
+                    <input type="number" value="1" min="1" class="w-16 p-2 border rounded-md text-center">
+                </div>
+
+                <!-- Buttons -->
+                <button class="w-full bg-cyan-700 text-white py-3 rounded-md hover:bg-cyan-800 mb-3 font-medium text-lg">
+                    Add to Cart
+                </button>
+                <button class="w-full bg-orange-600 text-white py-3 rounded-md hover:bg-orange-700 font-medium text-lg">
+                    Buy Now
+                </button>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="mt-6">
+                <h4 class="text-lg font-semibold mb-2">Product Details</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                    <li>✔️ 500mg Tablets</li>
+                    <li>✔️ Pack of 10</li>
+                    <li>✔️ Prescription Required</li>
+                    <li>✔️ Fast Relief</li>
+                </ul>
+            </div>
         </aside>
+        
     </div>
+
 </body>
 </html>
