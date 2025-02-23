@@ -3,23 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" >
-    <title>Error</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8d7da;
+            text-align: center;
+            padding: 50px;
+            color: #721c24;
+        }
+        .error-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #dc3545;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .btn-red {
+            background: #dc3545;
+        }
+        .btn-gray {
+            background: #6c757d;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
-    {% include "navbar_private.html" %}
-
-    <h1>Payment Failed</h1>
-
-    <p>There was an error processing your payment. Please try again.</p>
-
-    <a href="{{ url_for('cart') }}">Back to Cart</a>
-
-    <a href="{{ url_for('products') }}">Continue Shopping</a>
-
-    {% include "footer.html" %}
+    <div class="error-container">
+        <h1>❌ Payment Failed</h1>
+        <p>There was an error processing your payment. Please try again.</p>
+        <a href="#" class="btn btn-red">🔄 Try Again</a>
+        <a href="#" class="btn btn-gray">🛒 Back to Cart</a>
+    </div>
 </body>
 </html>

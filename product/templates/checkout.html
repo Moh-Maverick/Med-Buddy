@@ -3,36 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" >
-    <title>Checkout</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+        .cart-item img {
+            width: 80px;
+            border-radius: 5px;
+        }
+        .cart-item-info {
+            text-align: left;
+        }
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .btn-blue {
+            background: #007bff;
+        }
+        .btn-gray {
+            background: #6c757d;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
     {% include "navbar_private.html" %}
 
-    <h1>Checkout</h1>
+    <div class="container">
+        <h1>🛒 Checkout</h1>
 
-    {% if cart_items %}
-        <ul>
-            {% for item in cart_items %}
-                <li>
-                    <img src="{{ item['image_url'] }}" alt="{{ item['name'] }}" width="100">
-                    <strong>{{ item['name'] }}</strong><br>
-                    Price: ${{ item['price'] }}<br>
-                    Quantity: {{ item['quantity'] }}
-                </li>
-            {% endfor %}
-        </ul>
+        {% if cart_items %}
+            <div>
+                {% for item in cart_items %}
+                    <div class="cart-item">
+                        <img src="{{ item['image_url'] }}" alt="{{ item['name'] }}">
+                        <div class="cart-item-info">
+                            <strong>{{ item['name'] }}</strong><br>
+                            Price: ${{ item['price'] }}<br>
+                            Quantity: {{ item['quantity'] }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
 
-        <p>Total Price: ${{ total_price }}</p>
+            <p class="total">Total: ${{ total_price }}</p>
 
-        <a href="{{ url_for('create_checkout_session') }}">Proceed to Payment</a>
-    {% else %}
-        <p>Your cart is empty! Cannot proceed to checkout.</p>
-        <a href="{{ url_for('products') }}">Browse Products</a>
-    {% endif %}
+            <a href="{{ url_for('create_checkout_session') }}" class="btn btn-blue">💳 Proceed to Payment</a>
+        {% else %}
+            <p>Your cart is empty! Cannot proceed to checkout.</p>
+            <a href="{{ url_for('products') }}" class="btn btn-gray">🛍️ Browse Products</a>
+        {% endif %}
+    </div>
 
     {% include "footer.html" %}
 </body>
